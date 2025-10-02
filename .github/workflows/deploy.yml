@@ -22,7 +22,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER_STAGING }}
           username: ${{ secrets.FTP_USERNAME_STAGING }}
           password: ${{ secrets.FTP_PASSWORD_STAGING }}
-          server-dir: /www/stage/cliente1/
+          server-dir: /stage/cliente1/
+
 
 
       # Deploy para PRODUÇÃO
