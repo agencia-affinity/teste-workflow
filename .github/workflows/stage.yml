@@ -21,14 +21,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD_STAGING }}
           server-dir: www/stage/cliente1/
           exclude: |
-            .git/**
-            **/.github/**
-            **/.idea/**
-            **/.vscode/**
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
             .gitignore
-            node_modules/**
-            vendor/**
-            tests/**
-            .DS_Store
-            README*
-            *.md
