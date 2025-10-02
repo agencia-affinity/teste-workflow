@@ -21,7 +21,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME_STAGING }}
           password: ${{ secrets.FTP_PASSWORD_STAGING }}
           server-dir: /www/stage/
-          protocol: ftps
           exclude: |
             .git/**
             .github/**

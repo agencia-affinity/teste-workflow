@@ -21,7 +21,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME_PROD }}
           password: ${{ secrets.FTP_PASSWORD_PROD }}
           server-dir: /public_html/
-          protocol: ftps
           exclude: |
             .git/**
             .github/**
