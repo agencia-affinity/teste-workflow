@@ -1,9 +1,10 @@
 name: Deploy PRODUCTION
 
 on:
+  workflow_dispatch:   # só roda manualmente
   push:
     branches:
-      - main
+      - main     # define a branch principal de produção
 
 jobs:
   deploy-production:
