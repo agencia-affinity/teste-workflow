@@ -1,0 +1,57 @@
+name: Deploy PHP para Staging e Produção
+
+on:
+  push:
+    branches:
+      - staging
+      - production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      # Deploy para STAGING
+      - name: Deploy Staging
+        if: github.ref == 'refs/heads/staging'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER_STAGING }}
+          username: ${{ secrets.FTP_USERNAME_STAGING }}
+          password: ${{ secrets.FTP_PASSWORD_STAGING }}
+          server-dir: stage/cliente1/
+          exclude: |
+            .git/**
+            .github/**
+            .idea/**
+            node_modules/**
+            vendor/**
+            tests/**
+            .DS_Store
+            README*
+            *.md
+
+
+      # Deploy para PRODUÇÃO
+      - name: Deploy Produção
+        if: github.ref == 'refs/heads/production'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER_PROD }}
+          username: ${{ secrets.FTP_USERNAME_PROD }}
+          password: ${{ secrets.FTP_PASSWORD_PROD }}
+          server-dir: /public_html/
+          exclude: |
+            .git/**
+            .github/**
+            .idea/**
+            node_modules/**
+            vendor/**
+            tests/**
+            .DS_Store
+            README*
+            *.md
+

@@ -38,4 +38,3 @@ Thumbs.db
 # 4. Excluir o próprio GitHub Actions
 # ---------------------------------------------
 # Pasta do Github Actions (o deploy não deve enviar o seu workflow)
-.github/
