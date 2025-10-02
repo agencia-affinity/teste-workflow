@@ -1,10 +1,9 @@
 name: Deploy PRODUCTION
 
 on:
-  workflow_dispatch:   # só roda manualmente
   push:
     branches:
-      - main     # define a branch principal de produção
+      - main
 
 jobs:
   deploy-production:
@@ -20,7 +19,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER_PROD }}
           username: ${{ secrets.FTP_USERNAME_PROD }}
           password: ${{ secrets.FTP_PASSWORD_PROD }}
-          server-dir: /public_html/
+          server-dir: public_html/
           exclude: |
             .git/**
             .github/**

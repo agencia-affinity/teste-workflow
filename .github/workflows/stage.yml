@@ -1,10 +1,9 @@
 name: Deploy STAGING
 
 on:
-  workflow_dispatch:   # só roda manualmente
   push:
     branches:
-      - staging        # ou "main" se quiser subir a partir dela
+      - main
 
 jobs:
   deploy-staging:
