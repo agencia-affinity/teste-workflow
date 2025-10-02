@@ -1,0 +1,41 @@
+# ---------------------------------------------
+# 1. Arquivos de Sistema e IDEs (macOS, Windows, Linux, etc.)
+# ---------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+~*
+.buildlog/
+
+# ---------------------------------------------
+# 2. Dependências de Pacotes (PHP e Node)
+# ---------------------------------------------
+# Se você usa Composer (PHP)
+/vendor/
+
+# Se você usa Node/NPM (para assets frontend)
+/node_modules/
+
+# ---------------------------------------------
+# 3. Arquivos de Configuração Local e Ambiente
+# ---------------------------------------------
+# Exemplo de arquivo de variáveis de ambiente
+.env
+
+# Arquivos de logs
+*.log
+/logs/
+
+# Arquivos de cache e temporários
+/tmp/
+/cache/
+*.sql
+
+# ---------------------------------------------
+# 4. Excluir o próprio GitHub Actions
+# ---------------------------------------------
+# Pasta do Github Actions (o deploy não deve enviar o seu workflow)
+.github/
