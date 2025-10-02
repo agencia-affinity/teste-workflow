@@ -22,8 +22,10 @@ jobs:
           server-dir: www/stage/cliente1/
           exclude: |
             .git/**
-            .github/**
-            .idea/**
+            **/.github/**
+            **/.idea/**
+            **/.vscode/**
+            .gitignore
             node_modules/**
             vendor/**
             tests/**
