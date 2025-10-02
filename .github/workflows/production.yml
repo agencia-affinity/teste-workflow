@@ -1,0 +1,31 @@
+name: Deploy PRODUCTION
+
+on:
+  workflow_dispatch:   # só roda manualmente
+  push:
+    branches:
+      - main     # define a branch principal de produção
+
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Deploy para PRODUÇÃO
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER_PROD }}
+          username: ${{ secrets.FTP_USERNAME_PROD }}
+          password: ${{ secrets.FTP_PASSWORD_PROD }}
+          server-dir: /public_html/
+          protocol: ftps
+          exclude: |
+            **/.git*
+            **/.github/**
+            **/node_modules/**
+            **/tests/**
+            **/*.md
+            **/README*

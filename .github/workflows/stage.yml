@@ -1,0 +1,31 @@
+name: Deploy STAGING
+
+on:
+  workflow_dispatch:   # só roda manualmente
+  push:
+    branches:
+      - staging        # ou "main" se quiser subir a partir dela
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Deploy para STAGING
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER_STAGING }}
+          username: ${{ secrets.FTP_USERNAME_STAGING }}
+          password: ${{ secrets.FTP_PASSWORD_STAGING }}
+          server-dir: /www/stage/
+          protocol: ftps
+          exclude: |
+            **/.git*
+            **/.github/**
+            **/node_modules/**
+            **/tests/**
+            **/*.md
+            **/README*
