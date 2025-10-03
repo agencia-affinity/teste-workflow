@@ -14,13 +14,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy para STAGING
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.1
         with:
-          server: ${{ secrets.FTP_SERVER_STAGING }}
-          username: ${{ secrets.FTP_USERNAME_STAGING }}
-          password: ${{ secrets.FTP_PASSWORD_STAGING }}
-          server-dir: /www/stage/cliente1/
-          dangerous-clean-slate: true
+          ftp_host: ${{ secrets.FTP_SERVER_STAGING }}
+          ftp_username: ${{ secrets.FTP_USERNAME_STAGING }}
+          ftp_password: ${{ secrets.FTP_PASSWORD_STAGING }}
+          local_source_dir: "./"
+          dist_target_dir: "www/stage/cliente1/"
           exclude: |
             **/.git*
             **/.git*/**
