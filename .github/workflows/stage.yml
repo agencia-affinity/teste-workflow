@@ -22,7 +22,7 @@ jobs:
           local_source_dir: "./"
           dist_target_dir: "www/stage/cliente1/"
           exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            .gitignore
+            ^\.git$
+            ^\.git/
+            ^node_modules/
+            \.gitignore
