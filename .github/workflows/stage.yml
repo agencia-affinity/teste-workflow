@@ -20,7 +20,7 @@ jobs:
           ftp_username: ${{ secrets.FTP_USERNAME_STAGING }}
           ftp_password: ${{ secrets.FTP_PASSWORD_STAGING }}
           local_source_dir: "./"
-          dist_target_dir: "/www/stage/cliente1/"
+          dist_target_dir: "/stage/cliente1/"
           exclude: |
             ^\.git$
             ^\.git/
